@@ -1,6 +1,6 @@
 // ✅ ユーザーが自由に追加・削除できる配列（ここだけいじればOK！）
 const brandOptions = ["BM", "HR", "JS",];
-const categoryOptions = ["クーポン", "リモデル", "PUSH"];
+const categoryOptions = ["常設クーポン", "リモデル", "PUSHクーポン"];
 
 
 // 📅 現在表示中の年月を保持する変数
