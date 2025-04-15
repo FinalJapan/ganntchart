@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>キャンペーンガントチャート</title>
+
+  <!-- Orbitronフォント（近未来っぽい） -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <h1>📊クーポン・プッシュカレンダー</h1>
+
+  <!-- フィルター -->
+  <div id="filterArea">
+    
+    <label>表示ブランド：
+      <select id="brandFilter"></select>
+    </label>
+
+    <label>表示カテゴリ：
+      <select id="categoryFilter"></select>
+    </label>
+
+  </div>
+
+  <!-- 編集モードの案内 -->
+  <div id="editNotice" style="display: none; color: #ff1744; font-weight: bold; margin: 10px 0;">
+    ✏️ 編集モード：内容を変更して保存してください
+  </div>
+
+  <!-- 入力フォーム -->
+  <form id="campaignForm">
+    <!-- ブランド選択 -->
+<select id="brand" required></select>
+
+    <!-- カテゴリ選択 -->
+<select id="category" required></select>
+
+    <div class="input-row">
+      <input type="text" id="name" placeholder="キャンペーン名" required />
+      <input type="date" id="start" placeholder="開始日" required />
+      <input type="date" id="end" placeholder="終了日" required />
+      <button type="submit">
+        <i class="fas fa-plus icon"></i> 追加
+      </button>
+    </div>
+  </form>
+
+  <!-- 編集中の操作エリア -->
+  <div id="deleteArea" style="display: none; margin-bottom: 15px;">
+    <button id="deleteBtn" style="background-color: #ff1744;">🗑 このキャンペーンを削除</button>
+    <button id="cancelBtn" style="margin-left: 10px; background-color: #ccc;">❌ キャンセル</button>
+  </div>
+
+  <!-- 月切り替えナビ -->
+  <div id="monthNav">
+    <button id="prevMonth">◀</button>
+    <span id="monthLabel"></span>
+    <button id="nextMonth">▶</button>
+  </div>
+
+  <!-- スクロールエリア -->
+  <div id="topScrollArea">
+    <div class="scroll-inner"></div>
+  </div>
+  <div id="scrollArea">
+    <div class="scroll-inner">
+      <div id="dateLabels" class="date-labels"></div>
+      <div class="chart-container" id="chartContainer"></div>
+    </div>
+  </div>
+
+  <!-- スクリプト -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
